@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    
+    <title>Snailbites.com</title>
+    <meta name="description" content="{{meta_description}}" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/assets/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/work.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+
+</head>
+<body>
+<a name="top"></a>
+<nav id="navbar" class="navbar">
+    <ul>
+    <li><a class="link-about" href="#about">ABOUT</a></li>
+    <li><a class="link-work" href="#work">WORK</a></li>
+    <li><a class="link-blog" href="#blog">BLOG</a></li>
+    </ul>
+</nav>
+<article id="home" class="home">
+
+    <section class="intro">
+        <h1>My name is Vince</h1>
+        I make websites<br>
+        I engineer the front end at <a href="http://www.jcrew.com" target="_blank">J.Crew</a><br>
+        I'm brewing <a href="http://www.caffevita.com/coffee/blends/theo-blend" target="_blank">Caffe Vita Theo blend</a>
+        Currently digging <a href="http://addyosmani.com/resources/essential/jsdesignpatterns/book/" target="_blank">design patterns</a><br>
+
+    </section>
+    <div class="clear"></div>
+</article>
+<article id="about" class="about">
+    <a name="about"></a>
+    <figure>
+        <img src="/assets/images/about-frame.png"/>    
+    </figure>
+    <section class="bio">
+        <p>My name is Vince and Snail is my nickname.</p>
+        <p>
+        My expertise as a Front End Developer comes from industry proven experience, combined with a rock solid background in Computer Science from Maryland. I season that with a plethora of volunteer work, including a four month stint working with impoverished communities in Southeast Asia.
+        </p>
+        <p>
+        My human approach coupled with my strong technical background, allow me to hand craft an engaging, custom-fit web experience for every project I face.
+        </p>
+    </section>
+    <div class="line"></div>
+    <div class="clear"></div>
+</article>
+<article id="work" class="work">
+    <aside class="sidebar">
+        <ul>
+            <li><a data-project="jcrew-pdp" data-link="http://www.jcrew.com/womens_category/sweaters/Pullover/PRDOVR~46725/46725.jsp" class="selected">J.Crew PDP</a></li>
+            <li><a data-project="jcrew-quickshop" data-link="http://www.jcrew.com/womens_feature/lookswelove.jsp">J.Crew Quickshop</a></li>
+            <li><a data-project="tgoodman" data-link="http://tgoodman.com/">Tim Goodman</a></li>
+            <li><a data-project="richtu" data-link="http://richtu.com/">Rich Tu</a></li>
+            <li><a data-project="espn-recruiting" data-link="http://espn.go.com/college-sports/basketball/recruiting/school/_/id/120">ESPN Recruiting Nation</a></li>
+            <li><a data-project="dreamteam25" data-link="http://dreamteam25.org/">Mark Teixeria</a></li>
+            <li><a data-project="suze-orman" data-link="http://www.theapprovedcard.com/">Suze Orman</a></li>
+            <li><a data-project="leadership" data-link="http://theleadershiproom.com/blog/">The Leadership Room</a></li>
+        </ul>
+    </aside>
+    <figure>
+        <img class="preloader" src="/assets/images/preloader.gif" />        
+        <a href="http://www.jcrew.com/womens_category/sweaters/Pullover/PRDOVR~46725/46725.jsp" target="_blank">
+            <img id="screenshot" src="/assets/screenshots/jcrew-pdp.png" data-project="jcrew-pdp" width="580" height="333" />
+            <figcaption id="caption">Developed the front end functionality for an overhaul of the J.Crew, J.Crew Factory and Madewell product detail pages.</figcaption>
+        </a>
+    </figure>
+    <div class="clear"></div>
+</article>
+
+<footer id="footer">
+    <div class="inner">
+        <section class="column">
+            &nbsp;
+        </section>
+
+        <section class="column">
+            <p>You can contact me at snail .at. snailbites.com.</p>                                    
+            <p>All work is the property of Vincent Nalupta and cannot be used without permission.</p>
+            <p>Copyright 2014 &bull; Snailbites.com</p>
+        </section>
+
+        <section class="column last">                                        
+        </section>
+    </div>
+</footer>
+<script type="text/javascript" src="/assets/js/work.js"></script>
+<script>
+    $(document).ready(function(){
+        MyApp.init();
+        $(['/assets/screenshots/dreamteam25.png', '/assets/screenshots/espn-recruiting.png', '/assets/screenshots/jcrew-pdp.png', '/assets/screenshots/jcrew-quickshop.png', '/assets/screenshots/leadership.png', '/assets/screenshots/richtu.png', '/assets/screenshots/suze-orman.png', '/assets/screenshots/tgoodman.png']).preload();
+    });
+</script>
+
+
+</body>
+</html>
