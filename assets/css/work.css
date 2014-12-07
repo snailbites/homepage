@@ -772,6 +772,8 @@ article {
 }
 /* line 180, ../sass/screen.scss */
 #about .bio p {
+  line-height: 1.5em;
+  letter-spacing: 1px;
   margin-bottom: 25px;
 }
 /* line 184, ../sass/screen.scss */
