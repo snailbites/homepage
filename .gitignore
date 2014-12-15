@@ -9,4 +9,4 @@
 # ...even if they are in subdirectories
 !*/
 
-assets/captions/.DS_Store
+**/.DS_Store
