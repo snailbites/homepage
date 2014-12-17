@@ -1,15 +1,29 @@
-var Portfolio = function(jsonIn, elIn){
+var Portfolio = function(jsonIn, selectedIn, elIn, idIn){
   // private vars
   var defaults = {
     _el : '',
+    _imgId : '',
     _json : {},
     _list : [],
     _selected : ''
   }
 
-  // private methods
+  // PRIVATE METHODS
+
+  // returns index of project in _list
+  var getListIndex = function(projectName){
+    // TODO: create hash map for constant lookup time
+    for(var i=0, l=defaults._list.length; i < l; i++){
+      if(defaults._list[i].dataset['project'] === projectName){
+        return i;
+      }
+    }
+  }
   var setClassName = function(el){
     defaults._el = el;
+  }
+  var setImgId = function(id){
+    defaults._imgId = document.getElementById(id);
   }
   var fetchProjectList = function(){
     defaults._list = document.getElementsByClassName(defaults._el);
@@ -17,27 +31,36 @@ var Portfolio = function(jsonIn, elIn){
   var setProjects = function(jsonIn){
     defaults._json = jsonIn || {};
   }  
-  var setSelected = function(index){
-    defaults._selected = index;
+  var setSelectedItem = function(project){
+    defaults._selected = project;    
   }
-  var swapSelected = function(oldIndex, newIndex){
-    defaults._list[oldIndex].classList.remove('selected');
-    setSelected(newIndex)
-    defaults._list[newIndex].classList.add('selected');
+  var swapSelectedItem = function(oldProject, newProject){
+    // remove 
+    // set model data to new item
+
+    // 
+    defaults._list[getListIndex(oldProject)].classList.remove('selected');    
+    defaults._list[getListIndex(newProject)].classList.add('selected');
+    setSelectedItem(newProject) 
   }
   var attachEvents = function(){    
     for(var i=0, l=defaults._list.length; i < l; i++){      
       defaults._list[i].addEventListener('click', eventHandler, false)
     }    
   }
-  var eventHandler = function(e){
-    console.log(e)    
-    // change the image path    
+  var eventHandler = function(e){    
+    // change the image path 
+    console.log(defaults._json)
+    console.log(e.target.dataset)
+    // console.log(defaults._json[parseInt(e.target.dataset.index)].img)   
+    // defaults._imgId.src = defaults._list[parseInt(e.target.dataset.index)].img;
 
-    // change caption
+    
 
-    // add selected class
-    swapSelected(defaults._selected, parseInt(e.target.dataset.index))
+    // change caption    
+
+    // add selected class    
+    swapSelectedItem(defaults._selected, e.target.dataset.project)    
   }  
   
 
@@ -55,12 +78,14 @@ var Portfolio = function(jsonIn, elIn){
 
   // constructor   
   setProjects(json);
-  setClassName(elIn)  
+  setClassName(elIn);
+  setSelectedItem(selectedIn)  
+  setImgId(idIn);
   fetchProjectList(); 
 
   // setup
   attachEvents();    
-  setSelected(0)
+  
 };
 
 Portfolio.prototype = {
