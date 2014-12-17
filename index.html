@@ -14,7 +14,52 @@
 
     <link rel="stylesheet" type="text/css" href="/assets/css/work.css" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
-
+    
+    <!-- HERE FOR NOW -->
+    <script>
+        // MOCK JSON
+        var json = {
+            "mw_searchsale" : {
+                "caption" : "Refactored the search experience in the MV* javascript pattern. Worked heavily on restyling the Madewell brand experience.",
+                "img" : "/assets/screenshots/mw-searchsale.png",
+                "url" : "https://www.madewell.com/search2/index.jsp?N=21&Nsrt=3"
+            },
+            "pdp" : {
+                "caption" : "Developed the front end functionality for an overhaul of the J.Crew, J.Crew Factory and Madewell product detail pages.",
+                "img" : "/assets/screenshots/jcrew-pdp.png",
+                "url" : "http://www.jcrew.com/womens_category/sweaters/Pullover/PRDOVR~46725/46725.jsp"
+            },
+            "espn" : {
+                "caption" : "Designed and developed within ESPN's content framework to produce the detail page for a brand new college recruiting section on espn.com.",
+                "img" : "/assets/screenshots/espn-recruiting.png",
+                "url" : "http://espn.go.com/college-sports/basketball/recruiting/school/_/id/120"
+            },
+            "dreamteam" : {
+                "caption" : "Created an engaging donation portal for Yankee's All Star first basement Mark Teixeria, and his DreamTeam25 charity.",
+                "img" : "/assets/screenshots/dreamteam25.png",
+                "url" : "http://dreamteam25.org/"
+            },
+            "leadership" : {
+                "caption" : "Designed within the existing style direction of The Leadership Room branding, to redesign and restyle the blog page.",
+                "img" : "/assets/screenshots/leadership.png",
+                "url" : "http://theleadershiproom.com/blog/"
+            },
+            "suze_orman" : {
+                "caption" : "Worked closely with an external backend team to develop the front end dashboard feature of Suze Orman's The Approved Card portal.",
+                "img" : "/assets/screenshots/suze-orman.png",
+                "url" : "http://www.theapprovedcard.com/"
+            },
+            "tgoodman" : {
+                "caption" : "Developed a fully responsive portfolio page for illustrator Timothy Goodman. For this early work with responsive design, my agency was awarded a CommArts Webpick of the Day.",
+                "img" : "/assets/screenshots/tgoodman.png",
+                "url" : "http://tgoodman.com/"
+            },
+            "richtu" : {
+                "caption" : "Worked closely with award-winning illustrator Rich Tu to develop a distinctly different horizontal scrolling portfolio page.",
+                "img" : "/assets/screenshots/richtu.png"
+            }  
+        }        
+    </script>
 </head>
 <body>
 <a name="top"></a>
@@ -54,14 +99,14 @@
 <article id="work" class="work">
     <aside class="sidebar">
         <ul>
-            <li><a data-project="mw-searchsale" data-link="https://www.madewell.com/search2/index.jsp?N=21&Nsrt=3" class="project selected">J.Crew Search &amp; Sale</a></li>
-            <li><a data-project="jcrew-pdp" data-link="http://www.jcrew.com/womens_category/sweaters/Pullover/PRDOVR~46725/46725.jsp" class="project">J.Crew PDP</a></li>
-            <li><a data-project="tgoodman" data-link="http://tgoodman.com/" class="project">Tim Goodman</a></li>
-            <li><a data-project="richtu" data-link="http://richtu.com/ class="project"">Rich Tu</a></li>
-            <li><a data-project="espn-recruiting" data-link="http://espn.go.com/college-sports/basketball/recruiting/school/_/id/120" class="project">ESPN Recruiting Nation</a></li>
-            <li><a data-project="dreamteam25" data-link="http://dreamteam25.org/" class="project">Mark Teixeria</a></li>
-            <li><a data-project="suze-orman" data-link="http://www.theapprovedcard.com/" class="project">Suze Orman</a></li>
-            <li><a data-project="leadership" data-link="http://theleadershiproom.com/blog/" class="project">The Leadership Room</a></li>
+            <li><a data-index="0" data-project="mw-searchsale" data-link="https://www.madewell.com/search2/index.jsp?N=21&Nsrt=3" class="project selected">J.Crew Search &amp; Sale</a></li>
+            <li><a data-index="1" data-project="jcrew-pdp" data-link="http://www.jcrew.com/womens_category/sweaters/Pullover/PRDOVR~46725/46725.jsp" class="project">J.Crew PDP</a></li>
+            <li><a data-index="2" data-project="tgoodman" data-link="http://tgoodman.com/" class="project">Tim Goodman</a></li>
+            <li><a data-index="3" data-project="richtu" data-link="http://richtu.com/" class="project">Rich Tu</a></li>
+            <li><a data-index="4" data-project="espn-recruiting" data-link="http://espn.go.com/college-sports/basketball/recruiting/school/_/id/120" class="project">ESPN Recruiting Nation</a></li>
+            <li><a data-index="5" data-project="dreamteam25" data-link="http://dreamteam25.org/" class="project">Mark Teixeria</a></li>
+            <li><a data-index="6" data-project="suze-orman" data-link="http://www.theapprovedcard.com/" class="project">Suze Orman</a></li>
+            <li><a data-index="7" data-project="leadership" data-link="http://theleadershiproom.com/blog/" class="project">The Leadership Room</a></li>
         </ul>
     </aside>
     <figure>
@@ -89,55 +134,11 @@
         </section>
     </div>
 </footer>
-<script type="text/javascript" src="/assets/js/work.js"></script>
-<script>
-    // MOCK JSON
-    var folio = {
-        "mw_searchsale" : {
-            "caption" : "Refactored the search experience in the MV* javascript pattern. Worked heavily on restyling the Madewell brand experience.",
-            "img" : "/assets/screenshots/mw-searchsale.png",
-            "url" : "https://www.madewell.com/search2/index.jsp?N=21&Nsrt=3"
-        },
-        "pdp" : {
-            "caption" : "Developed the front end functionality for an overhaul of the J.Crew, J.Crew Factory and Madewell product detail pages.",
-            "img" : "/assets/screenshots/jcrew-pdp.png",
-            "url" : "http://www.jcrew.com/womens_category/sweaters/Pullover/PRDOVR~46725/46725.jsp"
-        },
-        "espn" : {
-            "caption" : "Designed and developed within ESPN's content framework to produce the detail page for a brand new college recruiting section on espn.com.",
-            "img" : "/assets/screenshots/espn-recruiting.png",
-            "url" : "http://espn.go.com/college-sports/basketball/recruiting/school/_/id/120"
-        },
-        "dreamteam" : {
-            "caption" : "Created an engaging donation portal for Yankee's All Star first basement Mark Teixeria, and his DreamTeam25 charity.",
-            "img" : "/assets/screenshots/dreamteam25.png",
-            "url" : "http://dreamteam25.org/"
-        },
-        "leadership" : {
-            "caption" : "Designed within the existing style direction of The Leadership Room branding, to redesign and restyle the blog page.",
-            "img" : "/assets/screenshots/leadership.png",
-            "url" : "http://theleadershiproom.com/blog/"
-        },
-        "suze_orman" : {
-            "caption" : "Worked closely with an external backend team to develop the front end dashboard feature of Suze Orman's The Approved Card portal.",
-            "img" : "/assets/screenshots/suze-orman.png",
-            "url" : "http://www.theapprovedcard.com/"
-        },
-        "tgoodman" : {
-            "caption" : "Developed a fully responsive portfolio page for illustrator Timothy Goodman. For this early work with responsive design, my agency was awarded a CommArts Webpick of the Day.",
-            "img" : "/assets/screenshots/tgoodman.png",
-            "url" : "http://tgoodman.com/"
-        },
-        "richtu" : {
-            "caption" : "Worked closely with award-winning illustrator Rich Tu to develop a distinctly different horizontal scrolling portfolio page.",
-            "img" : "/assets/screenshots/richtu.png"
-        }  
-    }
-    console.log(folio)
-    // $(document).ready(function(){
-    //     MyApp.init();
-    //     $(['/assets/screenshots/mw-searchsale.png', '/assets/screenshots/dreamteam25.png', '/assets/screenshots/espn-recruiting.png', '/assets/screenshots/jcrew-pdp.png', '/assets/screenshots/jcrew-quickshop.png', '/assets/screenshots/leadership.png', '/assets/screenshots/richtu.png', '/assets/screenshots/suze-orman.png', '/assets/screenshots/tgoodman.png']).preload();
-    // });
+<script type="text/javascript" src="/assets/js/main.js"></script>
+<script>    
+    var SNAIL = {};
+    
+    SNAIL.folio = new Portfolio(json, 'project')    
 </script>
 
 
