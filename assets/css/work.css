@@ -777,7 +777,7 @@ article {
   margin-bottom: 25px;
 }
 /* line 184, ../sass/screen.scss */
-#about .line {
+.line {
   width: 100%;
   border-top: 2px groove #FFF;
   clear: both;
@@ -881,6 +881,7 @@ body {
 }
 #home .intro {
   color: #333;
+  height: 500px;
 }
 #navbar {
   width: 100%;
@@ -890,14 +891,23 @@ body {
   border-bottom: 3px solid #333;  
   box-shadow: #999 -2px 2px 4px;
   background-color: #be342a;
+  z-index: 10;
 }
 #navbar h1 {
   float: left;
-  width: 50%;
+  width: 100px;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  letter-spacing: 3px;
+  margin: 10px 0 0 20px;
+}
+#navbar h1 a {
+  text-decoration: none;
+  color: #333;
 }
 #navbar ul {  
   background-color: transparent;
-  width: 25.3%;
+  width: 227px;
   border: 0 none;
   box-shadow: none;
   -webkit-box-shadow: none;
