@@ -1,29 +1,23 @@
-var Portfolio = function(jsonIn, selectedIn, elIn, idIn){
-  // private vars
+var Portfolio = function(jsonIn, selectedIn, elIn, idIn, captionIn){
+  // PRIVATE VARS
   var defaults = {
     _el : '',
-    _imgId : '',
+    _img : '',
+    _caption : '',
     _json : {},
     _list : [],
     _selected : ''
   }
 
-  // PRIVATE METHODS
-
-  // returns index of project in _list
-  var getListIndex = function(projectName){
-    // TODO: create hash map for constant lookup time
-    for(var i=0, l=defaults._list.length; i < l; i++){
-      if(defaults._list[i].dataset['project'] === projectName){
-        return i;
-      }
-    }
-  }
+  // PRIVATE METHODS  
   var setClassName = function(el){
     defaults._el = el;
   }
-  var setImgId = function(id){
-    defaults._imgId = document.getElementById(id);
+  var setImg = function(id){
+    defaults._img = document.getElementById(id);
+  }  
+  var setCaption = function(id){
+    defaults._caption = document.getElementById(id);
   }
   var fetchProjectList = function(){
     defaults._list = document.getElementsByClassName(defaults._el);
@@ -35,37 +29,37 @@ var Portfolio = function(jsonIn, selectedIn, elIn, idIn){
     defaults._selected = project;    
   }
   var swapSelectedItem = function(oldProject, newProject){
-    // remove 
-    // set model data to new item
-
-    // 
     defaults._list[getListIndex(oldProject)].classList.remove('selected');    
-    defaults._list[getListIndex(newProject)].classList.add('selected');
-    setSelectedItem(newProject) 
+    defaults._list[getListIndex(newProject)].classList.add('selected');    
+  }
+  var swapSelectedImg = function(newProject){
+    defaults._img.src = defaults._json[newProject].img
+    defaults._img.parentNode.href = defaults._json[newProject].url;
+    defaults._caption.innerHTML = defaults._json[newProject].caption;
+  }
+  var getListIndex = function(projectName){ 
+    // returns index of project in _list
+    // TODO: create hash map for constant lookup time
+    for(var i=0, l=defaults._list.length; i < l; i++){
+      if(defaults._list[i].dataset['project'] === projectName){        
+        return i;
+      }
+    }
   }
   var attachEvents = function(){    
     for(var i=0, l=defaults._list.length; i < l; i++){      
-      defaults._list[i].addEventListener('click', eventHandler, false)
+      defaults._list[i].addEventListener('click', clickHandler, false)
     }    
   }
-  var eventHandler = function(e){    
-    // change the image path 
-    console.log(defaults._json)
-    console.log(e.target.dataset)
-    // console.log(defaults._json[parseInt(e.target.dataset.index)].img)   
-    // defaults._imgId.src = defaults._list[parseInt(e.target.dataset.index)].img;
-
-    
-
-    // change caption    
-
-    // add selected class    
-    swapSelectedItem(defaults._selected, e.target.dataset.project)    
+  var clickHandler = function(e){    
+    var clickedProj = e.target.dataset.project.toString();         
+    swapSelectedImg(clickedProj);        
+    swapSelectedItem(defaults._selected, clickedProj)    // add selected class        
+    setSelectedItem(clickedProj) // update defaults
   }  
   
 
-
-  // privileged methods
+  // PRIVILEGED METHODS
   this.getProjects = function(){
     return defaults._json;
   }
@@ -76,17 +70,16 @@ var Portfolio = function(jsonIn, selectedIn, elIn, idIn){
     return defaults._el;
   }  
 
-  // constructor   
+  // CONSTRUCTOR METHODS   
   setProjects(json);
   setClassName(elIn);
   setSelectedItem(selectedIn)  
-  setImgId(idIn);
-  fetchProjectList(); 
-
-  // setup
+  setImg(idIn);
+  setCaption(captionIn);
+  fetchProjectList();   
   attachEvents();    
-  
 };
 
+// PUBLIC METHODS
 Portfolio.prototype = {
 }
