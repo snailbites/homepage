@@ -30,8 +30,8 @@ var Portfolio = function(jsonIn, selectedIn, elIn, idIn, captionIn){
   }
   var swapSelectedImg = function(newProject){
     Portfolio.prototype.fadeOut(defaults._img)
-    function restoreImg(){
-      defaults._img.src = defaults._json[newProject].img
+    defaults._img.src = defaults._json[newProject].img
+    function restoreImg(){      
       defaults._img.parentNode.href = defaults._json[newProject].url;
       defaults._caption.innerHTML = defaults._json[newProject].caption;  
       Portfolio.prototype.fadeIn(defaults._img)
