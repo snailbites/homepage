@@ -848,6 +848,7 @@ article {
   font-size: 14px;
   color: #DDD;
   line-height: 18px;
+  overflow: hidden;
 }
 /* line 247, ../sass/screen.scss */
 #footer h1 {
