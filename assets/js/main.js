@@ -30,10 +30,14 @@ var Portfolio = function(jsonIn, selectedIn, elIn, idIn, captionIn){
   }
   var swapSelectedImg = function(newProject){
     Portfolio.prototype.fadeOut(defaults._img)
-    defaults._img.src = defaults._json[newProject].img
-    defaults._img.parentNode.href = defaults._json[newProject].url;
-    defaults._caption.innerHTML = defaults._json[newProject].caption;
-    Portfolio.prototype.fadeIn(defaults._img)
+    function restoreImg(){
+      defaults._img.src = defaults._json[newProject].img
+      defaults._img.parentNode.href = defaults._json[newProject].url;
+      defaults._caption.innerHTML = defaults._json[newProject].caption;  
+      Portfolio.prototype.fadeIn(defaults._img)
+    }
+    
+    setTimeout(restoreImg, 150);
   }  
   var swapSelectedItem = function(oldProject, newProject){
     defaults._list[getListIndex(oldProject)].classList.remove('selected');    
