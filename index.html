@@ -180,9 +180,8 @@
 <script>    
     var SNAIL = {};
     
-    SNAIL.folio = new Portfolio(json, 'mw_searchsale', 'project', 'screenshot', 'caption');
-    SNAIL.folio.getImgArr(json)
-    SNAIL.folio.preloadImages( ["/assets/screenshots/jcrew-pdp.png", "/assets/screenshots/mw-searchsale.png", "/assets/screenshots/dreamteam25.png", "/assets/screenshots/espn-recruiting.png", "/assets/screenshots/leadership.png", "/assets/screenshots/suze-orman.png", "/assets/screenshots/tgoodman.png", "/assets/screenshots/richtu.png"]);   
+    SNAIL.folio = new Portfolio(json, 'mw_searchsale', 'project', 'screenshot', 'caption');    
+    SNAIL.folio.preloadImages(SNAIL.folio.getImgArr(json));   
 </script>
 
 

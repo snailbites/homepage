@@ -141,9 +141,10 @@ Portfolio.prototype = {
   },
   getImgArr : function(json){
     var arr = [];
-    for(var i=0; i<json.length; i++){
-      arr.push(i)
-      console.log(i.value)
+    for (var key in json) {
+      if (json.hasOwnProperty(key)) {
+        arr.push(json[key].img);
+      }
     }
     return arr;
   } 
