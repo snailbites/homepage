@@ -824,7 +824,8 @@ article {
 }
 /* line 222, ../sass/screen.scss */
 #work figure figcaption {
-  display: none;
+  display: block;
+  opacity: 0;
   position: absolute;
   bottom: 130px;
   margin: 0 25px;
