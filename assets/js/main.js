@@ -9,7 +9,7 @@ var Portfolio = function(jsonIn, selectedIn, elIn, idIn, captionIn){
     _selected : ''
   }
 
-  // PRIVATE METHODS  
+  // SETTERS AND HELPERS
   var setClassName = function(el){
     defaults._el = el;
   }
@@ -28,21 +28,6 @@ var Portfolio = function(jsonIn, selectedIn, elIn, idIn, captionIn){
   var setSelectedItem = function(project){
     defaults._selected = project;    
   }
-  var swapSelectedImg = function(newProject){
-    Portfolio.prototype.fadeOut(defaults._img)    
-    var restoreImg = function(){      
-      defaults._img.src = defaults._json[newProject].img
-      defaults._img.parentNode.href = defaults._json[newProject].url;
-      defaults._caption.innerHTML = defaults._json[newProject].caption;  
-      Portfolio.prototype.fadeIn(defaults._img)
-    }
-    
-    setTimeout(restoreImg, 150);
-  }  
-  var swapSelectedItem = function(oldProject, newProject){
-    defaults._list[getListIndex(oldProject)].classList.remove('selected');    
-    defaults._list[getListIndex(newProject)].classList.add('selected');    
-  }
   var getListIndex = function(projectName){ 
     // returns index of project in _list
     // TODO: create hash map for constant lookup time
@@ -52,6 +37,8 @@ var Portfolio = function(jsonIn, selectedIn, elIn, idIn, captionIn){
       }
     }
   }
+
+  // EVENTS
   var attachEvents = function(){    
     // attach clicks to project list
     for(var i=0, l=defaults._list.length; i < l; i++){      
@@ -61,12 +48,29 @@ var Portfolio = function(jsonIn, selectedIn, elIn, idIn, captionIn){
     defaults._img.addEventListener('mouseover', mouseOverHandler, false);
     defaults._img.addEventListener('mouseout', mouseOutHandler, false);
   }
+
   var clickHandler = function(e){    
-    var clickedProj = e.target.dataset.project.toString();         
-    swapSelectedImg(clickedProj);        
-    swapSelectedItem(defaults._selected, clickedProj)    // add selected class        
-    setSelectedItem(clickedProj) // update defaults
+    var clickedProj = e.target.dataset.project.toString();   
+    if( clickedProj === defaults._selected) return false;
+
+    // swap out the old image with the new image
+    var restoreImg = function(){      
+      defaults._img.src = defaults._json[clickedProj].img
+      defaults._img.parentNode.href = defaults._json[clickedProj].url;
+      defaults._caption.innerHTML = defaults._json[clickedProj].caption;  
+      Portfolio.prototype.fadeIn(defaults._img)
+    }    
+    Portfolio.prototype.fadeOut(defaults._img)
+    setTimeout(restoreImg, 150);      
+
+    // add selected class to the sidebar
+    defaults._list[getListIndex(defaults._selected)].classList.remove('selected');    
+    defaults._list[getListIndex(clickedProj)].classList.add('selected');    
+
+    // update defaults
+    setSelectedItem(clickedProj) 
   }  
+
   // TODO: might wanna curry these two
   var mouseOverHandler = function(e){
     e.stopPropagation();    
@@ -75,17 +79,6 @@ var Portfolio = function(jsonIn, selectedIn, elIn, idIn, captionIn){
   var mouseOutHandler = function(e){
     e.stopPropagation();    
     Portfolio.prototype.fadeOut(defaults._caption)
-  }  
-
-  // PRIVILEGED METHODS
-  this.getProjects = function(){
-    return defaults._json;
-  }
-  this.getList = function(){
-    return defaults._list;
-  }
-  this.getEl = function(){
-    return defaults._el;
   }  
 
   // CONSTRUCTOR METHODS   
@@ -129,6 +122,7 @@ Portfolio.prototype = {
     };
     tick();
   },
+  // from stackoverflow!
   preloadImages : function(array){
     var list = [];
     for (var i = 0; i < array.length; i++) {
