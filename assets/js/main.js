@@ -29,9 +29,9 @@ var Portfolio = function(jsonIn, selectedIn, elIn, idIn, captionIn){
     defaults._selected = project;    
   }
   var swapSelectedImg = function(newProject){
-    Portfolio.prototype.fadeOut(defaults._img)
-    defaults._img.src = defaults._json[newProject].img
-    function restoreImg(){      
+    Portfolio.prototype.fadeOut(defaults._img)    
+    var restoreImg = function(){      
+      defaults._img.src = defaults._json[newProject].img
       defaults._img.parentNode.href = defaults._json[newProject].url;
       defaults._caption.innerHTML = defaults._json[newProject].caption;  
       Portfolio.prototype.fadeIn(defaults._img)
@@ -128,5 +128,22 @@ Portfolio.prototype = {
       }
     };
     tick();
-  }  
+  },
+  preloadImages : function(array){
+    var list = [];
+    for (var i = 0; i < array.length; i++) {
+        var img = new Image();
+        img.onload = function() {
+            var index = list.indexOf(this);
+            if (index !== -1) {
+                // remove image from the array once it's loaded
+                // for memory consumption reasons
+                list.splice(index, 1);
+            }
+        }
+        list.push(img);
+        img.src = array[i];
+        console.log(img.src)
+    }
+  }
 }
