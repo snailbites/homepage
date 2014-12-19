@@ -137,7 +137,14 @@ Portfolio.prototype = {
         }
         list.push(img);
         img.src = array[i];
-        console.log(img.src)
     }
-  }
+  },
+  getImgArr : function(json){
+    var arr = [];
+    for(var i=0; i<json.length; i++){
+      arr.push(i)
+      console.log(i.value)
+    }
+    return arr;
+  } 
 }

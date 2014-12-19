@@ -877,8 +877,8 @@ article {
   margin-right: 0;
 }
 
-body {
-  background-color: #E9E9E9;
+body,html {
+  background: #E9E9E9;
 }
 #home .intro {
   color: #333;
