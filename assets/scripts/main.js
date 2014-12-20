@@ -1,5 +1,4 @@
 var Portfolio = function(jsonIn, configObjIn){
-// var Portfolio = function(jsonIn, selectedIn, elIn, idIn, captionIn){
   // PRIVATE VARS
   var defaults = {
     _el : '',
@@ -19,7 +18,6 @@ var Portfolio = function(jsonIn, configObjIn){
     defaults._caption = document.getElementById(configObj.caption);
     defaults._list = document.getElementsByClassName(defaults._el);    
   }
-
   var getListIndex = function(projectName){ 
     // returns index of project in _list
     // TODO: create hash map for constant lookup time
@@ -29,7 +27,6 @@ var Portfolio = function(jsonIn, configObjIn){
       }
     }
   }
-
   // EVENTS
   var attachEvents = function(){    
     // attach clicks to project list
@@ -40,7 +37,6 @@ var Portfolio = function(jsonIn, configObjIn){
     defaults._img.addEventListener('mouseover', mouseOverHandler, false);
     defaults._img.addEventListener('mouseout', mouseOutHandler, false);
   }
-
   var clickHandler = function(e){    
     var clickedProj = e.target.dataset.project.toString();   
     if( clickedProj === defaults._selected) return false;
