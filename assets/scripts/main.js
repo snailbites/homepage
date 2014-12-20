@@ -1,4 +1,5 @@
-var Portfolio = function(jsonIn, selectedIn, elIn, idIn, captionIn){
+var Portfolio = function(jsonIn, configObjIn){
+// var Portfolio = function(jsonIn, selectedIn, elIn, idIn, captionIn){
   // PRIVATE VARS
   var defaults = {
     _el : '',
@@ -9,29 +10,15 @@ var Portfolio = function(jsonIn, selectedIn, elIn, idIn, captionIn){
     _selected : ''
   }
 
-  // SETTERS AND HELPERS
-  // TODO: combine into set defaults
-  // TODO: take in one default obj and parse
-  var setClassName = function(el){
-    defaults._el = el;
-  }
-  var setImg = function(id){
-    defaults._img = document.getElementById(id);
-  }  
-  var setCaption = function(id){
-    defaults._caption = document.getElementById(id);
-  }
-  var fetchProjectList = function(){
-    defaults._list = document.getElementsByClassName(defaults._el);
-  }
-  var setProjects = function(jsonIn){
+  // PRIVATE METHODS
+  var setDefaults = function(configObj){
     defaults._json = jsonIn || {};
-  }  
-  var setSelectedItem = function(project){
-    defaults._selected = project;    
+    defaults._el = configObj.el || 'project';
+    defaults._selected = configObj.project || 'mw_searchsale';    
+    defaults._img = document.getElementById(configObj.img);
+    defaults._caption = document.getElementById(configObj.caption);
+    defaults._list = document.getElementsByClassName(defaults._el);    
   }
-// -----------------
-
 
   var getListIndex = function(projectName){ 
     // returns index of project in _list
@@ -73,7 +60,7 @@ var Portfolio = function(jsonIn, selectedIn, elIn, idIn, captionIn){
     defaults._list[getListIndex(clickedProj)].classList.add('selected');    
 
     // update defaults
-    setSelectedItem(clickedProj) 
+    defaults._selected = clickedProj; 
   }    
   var mouseOverHandler = function(e){
     e.stopPropagation();    
@@ -85,16 +72,7 @@ var Portfolio = function(jsonIn, selectedIn, elIn, idIn, captionIn){
   }  
 
   // CONSTRUCTOR METHODS 
-
-  // TODO: combine into set defaults
-  setProjects(json);
-  setClassName(elIn);
-  setSelectedItem(selectedIn)  
-  setImg(idIn);
-  setCaption(captionIn);
-  fetchProjectList();   
-
-  
+  setDefaults(configObjIn);
   attachEvents();    
 };
 
@@ -122,7 +100,6 @@ Portfolio.prototype = {
   fadeOut : function(el){
     return Portfolio.prototype.hover(el, 'out');
   },
-  // from stackoverflow!
   preloadImages : function(array){
     var list = [];
     for (var i = 0; i < array.length; i++) {

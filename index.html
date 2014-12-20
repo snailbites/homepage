@@ -135,7 +135,12 @@
 <script type="text/javascript" src="/assets/scripts/main.js"></script>
 <script>    
     var SNAIL = {};    
-    SNAIL.folio = new Portfolio(json, 'mw_searchsale', 'project', 'screenshot', 'caption');    
+    SNAIL.folio = new Portfolio(json, {
+        'project':'mw_searchsale', 
+        'el':'project', 
+        'img':'screenshot', 
+        'caption':'caption'
+    });    
     SNAIL.folio.preloadImages(SNAIL.folio.getImgArr(json));   
 </script>
 
