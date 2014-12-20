@@ -7,57 +7,16 @@
     <title>snalbites.com | Web Developer and Front End Engineer</title>
     <meta name="description" content="Front End Engineer based in the NYC metro area." />
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- No responsive needed yet -->
+    <!-- <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
 
     <link rel="shortcut icon" href="/assets/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/assets/styles/main.css" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
     
-    <!-- HERE FOR NOW -->
-    <script>
-      // var json = [
-      //       { "mw_searchsale" : {
-      //           "caption" : "Refactored the search experience in the MV* javascript pattern. Worked heavily on restyling the Madewell brand experience.",
-      //           "img" : "/assets/screenshots/mw-searchsale.png",
-      //           "url" : "https://www.madewell.com/search2/index.jsp?N=21&Nsrt=3" }
-      //       },
-      //       { "pdp" : {
-      //           "caption" : "Developed the front end functionality for an overhaul of the J.Crew, J.Crew Factory and Madewell product detail pages.",
-      //           "img" : "/assets/screenshots/jcrew-pdp.png",
-      //           "url" : "http://www.jcrew.com/womens_category/sweaters/Pullover/PRDOVR~46725/46725.jsp" }
-      //       },
-      //       { "espn" : {
-      //           "caption" : "Designed and developed within ESPN's content framework to produce the detail page for a brand new college recruiting section on espn.com.",
-      //           "img" : "/assets/screenshots/espn-recruiting.png",
-      //           "url" : "http://espn.go.com/college-sports/basketball/recruiting/school/_/id/120" }
-      //       },
-      //       { "dreamteam" : {
-      //           "caption" : "Created an engaging donation portal for Yankee's All Star first basement Mark Teixeria, and his DreamTeam25 charity.",
-      //           "img" : "/assets/screenshots/dreamteam25.png",
-      //           "url" : "http://dreamteam25.org/" }
-      //       },
-      //       { "leadership" : {
-      //           "caption" : "Designed within the existing style direction of The Leadership Room branding, to redesign and restyle the blog page.",
-      //           "img" : "/assets/screenshots/leadership.png",
-      //           "url" : "http://theleadershiproom.com/blog/" }
-      //       },
-      //       { "suze_orman" : {
-      //           "caption" : "Worked closely with an external backend team to develop the front end dashboard feature of Suze Orman's The Approved Card portal.",
-      //           "img" : "/assets/screenshots/suze-orman.png",
-      //           "url" : "http://www.theapprovedcard.com/" }
-      //       },
-      //       { "tgoodman" : {
-      //           "caption" : "Developed a fully responsive portfolio page for illustrator Timothy Goodman. For this early work with responsive design, my agency was awarded a CommArts Webpick of the Day.",
-      //           "img" : "/assets/screenshots/tgoodman.png",
-      //           "url" : "http://tgoodman.com/" }
-      //       },
-      //       { "richtu" : {
-      //           "caption" : "Worked closely with award-winning illustrator Rich Tu to develop a distinctly different horizontal scrolling portfolio page.",
-      //           "img" : "/assets/screenshots/richtu.png" }
-      //       } 
-      //   ]      
+    <script>            
         // MOCK JSON
         var json = {            
             "mw_searchsale" : {
@@ -175,8 +134,7 @@
 </footer>
 <script type="text/javascript" src="/assets/scripts/main.js"></script>
 <script>    
-    var SNAIL = {};
-    
+    var SNAIL = {};    
     SNAIL.folio = new Portfolio(json, 'mw_searchsale', 'project', 'screenshot', 'caption');    
     SNAIL.folio.preloadImages(SNAIL.folio.getImgArr(json));   
 </script>
