@@ -69,9 +69,7 @@ var Portfolio = function(jsonIn, selectedIn, elIn, idIn, captionIn){
 
     // update defaults
     setSelectedItem(clickedProj) 
-  }  
-
-  // TODO: might wanna curry these two
+  }    
   var mouseOverHandler = function(e){
     e.stopPropagation();    
     Portfolio.prototype.fadeIn(defaults._caption)
@@ -93,34 +91,27 @@ var Portfolio = function(jsonIn, selectedIn, elIn, idIn, captionIn){
 
 // PUBLIC METHODS
 Portfolio.prototype = {
-  // TODO: curry these two also
-  fadeIn : function(el) {  
-    el.style.opacity = 0;
+  hover : function(el, inOrOut){
+    el.style.opacity = (inOrOut === 'in') ? 0 : 1;
 
-    var last = +new Date();
+    var last = +new Date();    
     var tick = function() {
-      el.style.opacity = +el.style.opacity + (new Date() - last) / 200;
+      var step = (new Date() - last) / 200;
+      el.style.opacity = (inOrOut === 'in') ? +el.style.opacity + step : +el.style.opacity - step;      
       last = +new Date();
 
-      if (+el.style.opacity < 1) {
+      var test = (inOrOut === 'in') ? +el.style.opacity < 1 : +el.style.opacity > 0;      
+      if (test) {
         (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16)
       }
     };
     tick();
   },
-  fadeOut : function(el) {
-    el.style.opacity = 1;
-
-    var last = +new Date();
-    var tick = function() {
-      el.style.opacity = +el.style.opacity - (new Date() - last) / 200;
-      last = +new Date();
-
-      if (+el.style.opacity > 0) {
-        (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16)
-      }
-    };
-    tick();
+  fadeIn : function(el){
+    return Portfolio.prototype.hover(el, 'in');
+  },
+  fadeOut : function(el){
+    return Portfolio.prototype.hover(el, 'out');
   },
   // from stackoverflow!
   preloadImages : function(array){
