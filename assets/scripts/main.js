@@ -10,6 +10,8 @@ var Portfolio = function(jsonIn, selectedIn, elIn, idIn, captionIn){
   }
 
   // SETTERS AND HELPERS
+  // TODO: combine into set defaults
+  // TODO: take in one default obj and parse
   var setClassName = function(el){
     defaults._el = el;
   }
@@ -28,6 +30,9 @@ var Portfolio = function(jsonIn, selectedIn, elIn, idIn, captionIn){
   var setSelectedItem = function(project){
     defaults._selected = project;    
   }
+// -----------------
+
+
   var getListIndex = function(projectName){ 
     // returns index of project in _list
     // TODO: create hash map for constant lookup time
@@ -79,13 +84,17 @@ var Portfolio = function(jsonIn, selectedIn, elIn, idIn, captionIn){
     Portfolio.prototype.fadeOut(defaults._caption)
   }  
 
-  // CONSTRUCTOR METHODS   
+  // CONSTRUCTOR METHODS 
+
+  // TODO: combine into set defaults
   setProjects(json);
   setClassName(elIn);
   setSelectedItem(selectedIn)  
   setImg(idIn);
   setCaption(captionIn);
   fetchProjectList();   
+
+  
   attachEvents();    
 };
 
@@ -130,6 +139,7 @@ Portfolio.prototype = {
         img.src = array[i];
     }
   },
+  // return array of images from json
   getImgArr : function(json){
     var arr = [];
     for (var key in json) {
