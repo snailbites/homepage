@@ -92,7 +92,7 @@ Portfolio.prototype = {
   },
   preloadImages : function(array){
     var list = [];
-    for (var i = 0; i < array.length; i++) {
+    for (var i = 0, l = array.length; i < l; i++) {
         var img = new Image();
         img.onload = function() {
             var index = list.indexOf(this);
