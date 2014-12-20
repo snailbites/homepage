@@ -16,16 +16,10 @@ var Portfolio = function(jsonIn, configObjIn){
     defaults._selected = configObj.project || 'mw_searchsale';    
     defaults._img = document.getElementById(configObj.img);
     defaults._caption = document.getElementById(configObj.caption);
-    defaults._list = document.getElementsByClassName(defaults._el);    
+    defaults._list = document.getElementsByClassName(defaults._el);        
   }
-  var getListIndex = function(projectName){ 
-    // returns index of project in _list
-    // TODO: create hash map for constant lookup time
-    for(var i=0, l=defaults._list.length; i < l; i++){
-      if(defaults._list[i].dataset['project'] === projectName){        
-        return i;
-      }
-    }
+  var getListIndex = function(projectName){ // returns index of project in _list    
+    return defaults._json[projectName].index;
   }
   // EVENTS
   var attachEvents = function(){    
@@ -121,5 +115,5 @@ Portfolio.prototype = {
       }
     }
     return arr;
-  } 
+  }
 }
