@@ -1,4 +1,4 @@
 My Homepage
 ========
 
-Taking apart my old hacked together, event-driven, jQuery-laden homepage and rewriting into some kind of object oriented structure that actually makes sense.
+A repo for my static homepage - mostly a container for my portfolio slideshow object.
