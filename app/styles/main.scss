@@ -74,7 +74,7 @@ article {
   margin: 0 auto;
   min-height: 600px;
   padding: 10px;
-  width: 960px;
+  width: auto;
 }
 .mobile-heading {
   display: none;
@@ -275,7 +275,12 @@ article {
   }
 }
 
-
+@media (min-width: 961px) {
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+}
 @media (max-width: 960px) {
   body{
     width: auto;
