@@ -1,4 +1,4 @@
 My Homepage
 ========
 
-A repo for my static homepage - mostly a container for my portfolio slideshow object.
+A playground for me to try things, which ultimately makes it's way to my homepage.
