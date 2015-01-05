@@ -51,10 +51,10 @@ SNAIL.folio = (function(){
     }
 
     // fade in out effect on click
-    hover(defaults._img, 'out');
+    fadeOut(defaults._img);
     setTimeout(function(){
       swapImg(clickedProj);
-      hover(defaults._img, 'in');
+      fadeIn(defaults._img);
     }, 150);
 
     updateSidebar(clickedProj);
@@ -74,29 +74,35 @@ SNAIL.folio = (function(){
   };
   var mouseOverHandler = function(e){
     e.stopPropagation();
-    hover(defaults._caption, 'in');
+    fadeIn(defaults._caption);
   };
   var mouseOutHandler = function(e){
     e.stopPropagation();
-    hover(defaults._caption, 'out');
-  };
-  var hover = function(el, inOrOut){
-    el.style.opacity = (inOrOut === 'in') ? 0 : 1;
+    fadeOut(defaults._caption);
 
-    var last = +new Date();
-    var tick = function() {
-      var step = (new Date() - last) / 200;
-      el.style.opacity = (inOrOut === 'in') ? +el.style.opacity + step : +el.style.opacity - step;
-      last = +new Date();
-
-      var test = (inOrOut === 'in') ? +el.style.opacity < 1 : +el.style.opacity > 0;
-      if (test) {
-        (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
-      }
-    };
-    tick();
-    return el;
   };
+
+  var fade = function(inOrOut){
+    return function(el){
+      el.style.opacity = (inOrOut === 'in') ? 0 : 1;
+
+      var last = +new Date();
+
+      var tick = function() {
+        var step = (new Date() - last) / 200;
+        el.style.opacity = (inOrOut === 'in') ? +el.style.opacity + step : +el.style.opacity - step;
+        last = +new Date();
+
+        var test = (inOrOut === 'in') ? +el.style.opacity < 1 : +el.style.opacity > 0;
+        if (test) {
+          (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
+        }
+      };
+      tick();
+    }
+  };
+  var fadeOut = fade('out');
+  var fadeIn = fade('in');
 
   // PUBLIC API METHODS ///////////////////////
   var preloadImages = function(array){
@@ -137,7 +143,8 @@ SNAIL.folio = (function(){
     init : init,
     getDefaults : getDefaults,
     getListIndex : getListIndex,
-    hover : hover,
+    fadeIn : fadeIn,
+    fadeOut : fadeOut,
     preloadImages : preloadImages,
     getImgArr : getImgArr,
     swapImg : swapImg,

@@ -50,18 +50,18 @@
             document.body.removeChild(newDiv);
           });
 
-          describe('hover() in', function() {
+          describe('fadeIn()', function() {
             it('should set the opacity to 1', function(){
-              SNAIL.folio.hover(newDiv, 'in');
+              SNAIL.folio.fadeIn(newDiv);
               setTimeout(function(){
                 expect(+newDiv.style.opacity).to.be.at.least(1);
               }, 1000);
             });
           });
 
-          describe('hover() out', function() {
+          describe('fadeOut', function() {
             it('should set the opacity to 0', function(){
-              SNAIL.folio.hover(newDiv, 'out');
+              SNAIL.folio.fadeOut(newDiv);
               setTimeout(function(){
                 expect(+newDiv.style.opacity).to.be.at.most(0);
               }, 1000);
