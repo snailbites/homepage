@@ -82,8 +82,7 @@ SNAIL.folio = (function(){
     SNAIL.utils.fadeOut(defaults._caption);
   };
   // initalize the static obj
-  var init = function(configObj, json){
-    // setJSON(json);
+  var init = function(configObj){
     setDefaults(configObj);
     attachEvents();
   };

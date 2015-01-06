@@ -1,12 +1,16 @@
 /* global describe, it */
+
+// LOAD NAMESPACE
+var SNAIL = SNAIL || {};
+
 (function () {
     'use strict';
 
     describe('Set up the page', function () {
       describe('verify the json', function () {
         it('should have seven entries', function () {
-          json.richtu.index.should.equal(7);
-          json.espn.index.should.equal(2);
+          SNAIL.json.richtu.index.should.equal(7);
+          SNAIL.json.espn.index.should.equal(2);
         });
       });
       describe('verify the markup is correct', function() {
@@ -32,7 +36,7 @@
         });
         describe('prototype.getImgArr()', function(){
           it('should return an array same length as the json', function(){
-            SNAIL.utils.getImgArr(json).length.should.equal(8);
+            SNAIL.utils.getImgArr(SNAIL.json).length.should.equal(8);
           });
         });
       });
@@ -43,7 +47,7 @@
 
           beforeEach(function(){
             newDiv = document.createElement('div');
-            newDiv.innerHTML = "text";
+            newDiv.innerHTML = 'text';
             document.body.appendChild(newDiv);
           });
           afterEach(function(){
@@ -71,17 +75,17 @@
         describe('Click events', function(){
           describe('swapImg()', function(){
             it('should set the slideshow image to image of the project you pass in for all values of json', function(){
-              for (var key in json) {
-                if (json.hasOwnProperty(key)) {
+              for (var key in SNAIL.json) {
+                if (SNAIL.json.hasOwnProperty(key)) {
                   SNAIL.folio.swapImg(key);
-                  expect(SNAIL.folio.getDefaults()._img.attributes.src.value).to.deep.equal(json[key].img);
+                  expect(SNAIL.folio.getDefaults()._img.attributes.src.value).to.deep.equal(SNAIL.json[key].img);
                 }
               }
             });
           });
           describe('updateSidebar()', function(){
             it('should set the defaults with the project you pass in', function(){
-              for (var key in json) {
+              for (var key in SNAIL.json) {
                 if (json.hasOwnProperty(key)) {
                   SNAIL.folio.updateSidebar(key);
                   assert(SNAIL.folio.getDefaults()._list[SNAIL.folio.getListIndex(key)].classList.contains('selected'));

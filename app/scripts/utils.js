@@ -1,3 +1,8 @@
+'use strict';
+
+// LOAD NAMESPACE
+var SNAIL = SNAIL || {};
+
 var Utils = (function(){
   var fade = function(inOrOut){
     return function(el){
@@ -16,7 +21,7 @@ var Utils = (function(){
         }
       };
       tick();
-    }
+    };
   };
 
   // preload the images for faster animation
