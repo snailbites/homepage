@@ -32,7 +32,7 @@
         });
         describe('prototype.getImgArr()', function(){
           it('should return an array same length as the json', function(){
-            SNAIL.folio.getImgArr(json).length.should.equal(8);
+            SNAIL.utils.getImgArr(json).length.should.equal(8);
           });
         });
       });
@@ -52,7 +52,7 @@
 
           describe('fadeIn()', function() {
             it('should set the opacity to 1', function(){
-              SNAIL.folio.fadeIn(newDiv);
+              SNAIL.utils.fadeIn(newDiv);
               setTimeout(function(){
                 expect(+newDiv.style.opacity).to.be.at.least(1);
               }, 1000);
@@ -61,7 +61,7 @@
 
           describe('fadeOut', function() {
             it('should set the opacity to 0', function(){
-              SNAIL.folio.fadeOut(newDiv);
+              SNAIL.utils.fadeOut(newDiv);
               setTimeout(function(){
                 expect(+newDiv.style.opacity).to.be.at.most(0);
               }, 1000);

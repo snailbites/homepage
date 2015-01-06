@@ -97,7 +97,10 @@
 </footer>
 
 <!-- build:js({app,.tmp}) scripts/temp-json.js -->
-<script type="text/javascript" src="scripts/temp-json.js"></script>
+<script src="scripts/temp-json.js"></script>
+<!-- endbuild -->
+<!-- build:js({app,.tmp}) scripts/main.js -->
+<script src="scripts/utils.js"></script>
 <!-- endbuild -->
 <script>
     var SNAIL = {};
@@ -108,13 +111,15 @@
         'caption':'caption'
     };
     SNAIL.json = json || {};
+    SNAIL.utils = Utils || {};
 </script>
 <!-- build:js({app,.tmp}) scripts/main.js -->
-<script type="text/javascript" src="scripts/main.js"></script>
+<script src="scripts/main.js"></script>
 <!-- endbuild -->
+
 <script>
     SNAIL.folio.init(SNAIL.settings, SNAIL.json);
-    SNAIL.folio.preloadImages(SNAIL.folio.getImgArr(json));
+    SNAIL.utils.preloadImages(SNAIL.utils.getImgArr(SNAIL.json));
 </script>
 
 

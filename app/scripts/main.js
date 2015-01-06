@@ -22,15 +22,16 @@ SNAIL.folio = (function(){
     defaults._img = document.getElementById(configObj.img);
     defaults._caption = document.getElementById(configObj.caption);
     defaults._list = document.getElementsByClassName(defaults._el);
+    defaults._json = SNAIL.json;
   };
-  var setJSON = function(json){
-    defaults._json = json;
-  };
+  // var setJSON = function(json){
+
+  // };
   var getDefaults = function(){
     return defaults;
   };
   var getListIndex = function(projectName){ // returns index of project in _list
-    return defaults._json[projectName].index;
+    return SNAIL.json[projectName].index;
   };
 
   // EVENTS ///////////////////////
@@ -51,10 +52,10 @@ SNAIL.folio = (function(){
     }
 
     // fade in out effect on click
-    fadeOut(defaults._img);
+    SNAIL.utils.fadeOut(defaults._img);
     setTimeout(function(){
       swapImg(clickedProj);
-      fadeIn(defaults._img);
+      SNAIL.utils.fadeIn(defaults._img);
     }, 150);
 
     updateSidebar(clickedProj);
@@ -74,80 +75,26 @@ SNAIL.folio = (function(){
   };
   var mouseOverHandler = function(e){
     e.stopPropagation();
-    fadeIn(defaults._caption);
+    SNAIL.utils.fadeIn(defaults._caption);
   };
   var mouseOutHandler = function(e){
     e.stopPropagation();
-    fadeOut(defaults._caption);
-
-  };
-
-  var fade = function(inOrOut){
-    return function(el){
-      el.style.opacity = (inOrOut === 'in') ? 0 : 1;
-
-      var last = +new Date();
-
-      var tick = function() {
-        var step = (new Date() - last) / 200;
-        el.style.opacity = (inOrOut === 'in') ? +el.style.opacity + step : +el.style.opacity - step;
-        last = +new Date();
-
-        var test = (inOrOut === 'in') ? +el.style.opacity < 1 : +el.style.opacity > 0;
-        if (test) {
-          (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
-        }
-      };
-      tick();
-    }
-  };
-  var fadeOut = fade('out');
-  var fadeIn = fade('in');
-
-  // PUBLIC API METHODS ///////////////////////
-  var preloadImages = function(array){
-    var list = [];
-    for (var i = 0, l = array.length; i < l; i++) {
-        var img = new Image();
-        img.onload = function() {
-            var index = list.indexOf(this);
-            if (index !== -1) {
-                // remove image from the array once it's loaded
-                // for memory consumption reasons
-                list.splice(index, 1);
-            }
-        };
-        list.push(img);
-        img.src = array[i];
-    }
-  };
-  // return array of image paths from json
-  var getImgArr = function(json){
-    var arr = [];
-    for (var key in json) {
-      if (json.hasOwnProperty(key)) {
-        arr.push(json[key].img);
-      }
-    }
-    return arr;
+    SNAIL.utils.fadeOut(defaults._caption);
   };
   // initalize the static obj
   var init = function(configObj, json){
-    setJSON(json);
+    // setJSON(json);
     setDefaults(configObj);
     attachEvents();
   };
 
-// API ///////////////////////
+  // API ///////////////////////
   return {
     init : init,
     getDefaults : getDefaults,
     getListIndex : getListIndex,
-    fadeIn : fadeIn,
-    fadeOut : fadeOut,
-    preloadImages : preloadImages,
-    getImgArr : getImgArr,
     swapImg : swapImg,
     updateSidebar : updateSidebar
   };
 })();
+

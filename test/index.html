@@ -41,6 +41,7 @@
 
     <!-- include source files here... -->
     <script src="scripts/temp-json.js"></script>
+    <script src="scripts/utils.js"></script>
     <script>
         var SNAIL = {};
         SNAIL.settings = {
@@ -50,8 +51,9 @@
             'caption':'caption'
         };
         SNAIL.json = json || {};
+        SNAIL.utils = Utils || {};
     </script>
-    <script type="text/javascript" src="scripts/main.js"></script>
+    <script src="scripts/main.js"></script>
     <script>
         SNAIL.folio.init(SNAIL.settings, SNAIL.json);
         SNAIL.folio.prototype.preloadImages(SNAIL.folio.getImgArr(json));
