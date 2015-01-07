@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Mocha Spec Runner</title>
+    <link rel="stylesheet" href="bower_components/mocha/mocha.css">
+</head>
+<body>
+    <article id="work" class="work">
+        <h3 class="mobile-heading">Stuff</h3>
+        <aside class="sidebar">
+            <ul>
+                <li><a data-index="0" data-project="mw_searchsale" data-link="https://www.madewell.com/search2/index.jsp?N=21&Nsrt=3" class="project selected">J.Crew Search &amp; Sale</a></li>
+                <li><a data-index="1" data-project="pdp" data-link="http://www.jcrew.com/womens_category/sweaters/Pullover/PRDOVR~46725/46725.jsp" class="project">J.Crew PDP</a></li>
+                <li><a data-index="2" data-project="espn" data-link="http://espn.go.com/college-sports/basketball/recruiting/school/_/id/120" class="project">ESPN Recruiting Nation</a></li>
+                <li><a data-index="3" data-project="dreamteam" data-link="http://dreamteam25.org/" class="project">Mark Teixeria</a></li>
+                <li><a data-index="4" data-project="leadership" data-link="http://theleadershiproom.com/blog/" class="project">The Leadership Room</a></li>
+                <li><a data-index="5" data-project="suze_orman" data-link="http://www.theapprovedcard.com/" class="project">Suze Orman</a></li>
+                <li><a data-index="6" data-project="tgoodman" data-link="http://tgoodman.com/" class="project">Tim Goodman</a></li>
+                <li><a data-index="7" data-project="richtu" data-link="http://richtu.com/" class="project">Rich Tu</a></li>
+            </ul>
+        </aside>
+        <figure class="clearfix">
+            <a href="https://www.madewell.com/search2/index.jsp?N=21&Nsrt=3" target="_blank">
+                <img id="screenshot" src="images/screenshots/mw-searchsale.png" width="580" height="333">
+                <figcaption id="caption">Refactored the search experience in the MV* javascript pattern. Worked heavily on restyling the Madewell brand experience.</figcaption>
+            </a>
+        </figure>
+        <div class="clear"></div>
+    </article>
+    <div id="mocha"></div>
+    <script src="bower_components/mocha/mocha.js"></script>
+    <script>mocha.setup('bdd')</script>
+    <script src="bower_components/chai/chai.js"></script>
+    <script>
+        var assert = chai.assert;
+        var expect = chai.expect;
+        var should = chai.should();
+    </script>
+
+    <!-- include source files here... -->
+    <script>
+        var SNAIL = {};
+    </script>
+    <script src="scripts/temp-json.js"></script>
+    <script src="scripts/utils.js"></script>
+    <script>
+        SNAIL.settings = {
+            'project':'mw_searchsale',
+            'el':'project',
+            'img':'screenshot',
+            'caption':'caption'
+        };
+        SNAIL.json = json || {};
+        SNAIL.utils = Utils || {};
+    </script>
+    <script src="scripts/main.js"></script>
+    <script>
+        SNAIL.folio.init(SNAIL.settings, SNAIL.json);
+        SNAIL.folio.prototype.preloadImages(SNAIL.folio.getImgArr(json));
+    </script>
+
+    <!-- include spec files here... -->
+    <script src="spec/test.js"></script>
+
+    <script>mocha.run()</script>
+
+</body>
+</html>
