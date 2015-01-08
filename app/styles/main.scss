@@ -10,10 +10,6 @@ $font-family-sofia      : 'sofia_pro_lightregular', Helvetica, Arial, sans-serif
 $font-family-helvetica  : "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 $default-bg             : #24345a;
 $default-red            : #BE342A;
-// responsive vars
-// 962
-// 770 ?
-
 
 /*
  * Web Fonts from fontspring.com
@@ -152,9 +148,7 @@ article {
 // HOME
 #home {
   .intro {
-    width: 400px;
     text-align: right;
-    float: right;
     font-size: 22px;
     line-height: 36px;
     margin-top: 50px;
@@ -347,8 +341,6 @@ article {
     margin-bottom: 1em;
   }
   #home .intro {
-    float: none;
-    width: auto;
     text-align: center;
     height: auto;
     margin-bottom: 40px;
