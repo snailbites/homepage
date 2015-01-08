@@ -95,13 +95,6 @@
         </section>
     </div>
 </footer>
-
-<!-- build:js({app,.tmp}) scripts/temp-json.js -->
-<script src="scripts/temp-json.js"></script>
-<!-- endbuild -->
-<!-- build:js({app,.tmp}) scripts/utils.js -->
-<script src="scripts/utils.js"></script>
-<!-- endbuild -->
 <script>
     var SNAIL = {};
     SNAIL.settings = {
@@ -110,13 +103,16 @@
         'img':'screenshot',
         'caption':'caption'
     };
-    SNAIL.json = json || {};
-    SNAIL.utils = Utils || {};
 </script>
+<!-- build:js({app,.tmp}) scripts/temp-json.js -->
+<script src="scripts/temp-json.js"></script>
+<!-- endbuild -->
+<!-- build:js({app,.tmp}) scripts/utils.js -->
+<script src="scripts/utils.js"></script>
+<!-- endbuild -->
 <!-- build:js({app,.tmp}) scripts/main.js -->
 <script src="scripts/main.js"></script>
 <!-- endbuild -->
-
 <script>
     SNAIL.folio.init(SNAIL.settings, SNAIL.json);
     SNAIL.utils.preloadImages(SNAIL.utils.getImgArr(SNAIL.json));

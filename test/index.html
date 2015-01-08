@@ -42,23 +42,19 @@
     <!-- include source files here... -->
     <script>
         var SNAIL = {};
-    </script>
-    <script src="scripts/temp-json.js"></script>
-    <script src="scripts/utils.js"></script>
-    <script>
         SNAIL.settings = {
             'project':'mw_searchsale',
             'el':'project',
             'img':'screenshot',
             'caption':'caption'
-        };
-        SNAIL.json = json || {};
-        SNAIL.utils = Utils || {};
-    </script>
-    <script src="scripts/main.js"></script>
+        };    
+    </script>    
+    <script src="scripts/temp-json.js"></script>    
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/main.js"></script>    
     <script>
         SNAIL.folio.init(SNAIL.settings, SNAIL.json);
-        SNAIL.folio.prototype.preloadImages(SNAIL.folio.getImgArr(json));
+        SNAIL.utils.preloadImages(SNAIL.utils.getImgArr(SNAIL.json));
     </script>
 
     <!-- include spec files here... -->

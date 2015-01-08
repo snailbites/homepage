@@ -24,9 +24,6 @@ SNAIL.folio = (function(){
     defaults._list = document.getElementsByClassName(defaults._el);
     defaults._json = SNAIL.json;
   };
-  // var setJSON = function(json){
-
-  // };
   var getDefaults = function(){
     return defaults;
   };

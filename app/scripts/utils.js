@@ -3,13 +3,11 @@
 // LOAD NAMESPACE
 var SNAIL = SNAIL || {};
 
-var Utils = (function(){
+SNAIL.utils = (function(){
   var fade = function(inOrOut){
     return function(el){
       el.style.opacity = (inOrOut === 'in') ? 0 : 1;
-
       var last = +new Date();
-
       var tick = function() {
         var step = (new Date() - last) / 200;
         el.style.opacity = (inOrOut === 'in') ? +el.style.opacity + step : +el.style.opacity - step;

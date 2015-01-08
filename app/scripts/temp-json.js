@@ -1,5 +1,7 @@
 // MOCK JSON
-window.json = {
+var SNAIL = SNAIL || {};
+
+SNAIL.json = {
     'mw_searchsale' : {
         'caption' : 'Refactored the search experience in the MV* javascript pattern. Worked heavily on restyling the Madewell brand experience.',
         'img' : 'images/screenshots/mw-searchsale.png',

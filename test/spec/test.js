@@ -27,6 +27,19 @@ var SNAIL = SNAIL || {};
       });
     });
 
+    describe('Test the navigation object', function(){
+      describe('Click Events', function(){
+        describe('slideLeft()', function(){
+          it('should make the content visible');
+          it('should push the content to the left on click');
+        });
+        describe('slideRight()', function(){
+          it('should push the content to the right');
+          it('should hide the content');
+        });
+      });
+    });
+
     describe('Test the Portfolio object', function(){
       describe('Portfolio privileged functions', function() {
         describe('getListIndex()', function(){
@@ -86,7 +99,7 @@ var SNAIL = SNAIL || {};
           describe('updateSidebar()', function(){
             it('should set the defaults with the project you pass in', function(){
               for (var key in SNAIL.json) {
-                if (json.hasOwnProperty(key)) {
+                if (SNAIL.json.hasOwnProperty(key)) {
                   SNAIL.folio.updateSidebar(key);
                   assert(SNAIL.folio.getDefaults()._list[SNAIL.folio.getListIndex(key)].classList.contains('selected'));
                   expect(SNAIL.folio.getDefaults()._selected).to.deep.equal(key);
