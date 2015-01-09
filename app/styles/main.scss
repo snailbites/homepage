@@ -80,6 +80,22 @@ article {
   border-top: 2px groove #FFF;
   clear: both;
 }
+// PAGE WRAPPER
+#page-wrapper {
+  &.menu-is-open {
+    transform: translateX(-150px);
+  }
+}
+// FLYOUT
+#flyout-menu {
+  background: #000;
+  height: 100%;
+  width: 150px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: left;
+}
 
 // NAVBAR
 #navbar {
@@ -106,31 +122,19 @@ article {
       color: #333;
     }
   }
-  ul {
-    width: 136px;
-    padding: 9px;
+  .menu-trigger {
     float: right;
-    li {
-      display: inline;
-      padding: 15px;
-      a {
-        text-align: center;
-        text-decoration: none;
-        color: #FFF;
-        @include opacity(.5);
-        @include transition-duration(.2s);
-        &.selected {
-          @include opacity(1.0);
-          @include transition-duration(.5s);
-        }
-        &:hover {
-          @include opacity(1.0);
-          @include text-shadow(#FFF 0 0 8px);
-        }
-      }
-      &:first-child{
-        padding-left: 0;
-      }
+    color: #FFF;
+    padding: 9px;
+    letter-spacing: 1px;
+    &:hover {
+      cursor: pointer;
+      @include opacity(1.0);
+      @include text-shadow(#FFF 0 0 8px);
+    }
+    .button {
+      margin-left: 7px;
+      font-size: 110%;
     }
   }
 }
